@@ -10,6 +10,11 @@ body {
   box-sizing: border-box;
 }
 
+:root{
+  --accent: #6c5ce7;
+  --bg: #f1c40f;
+}
+
 main {
   padding: 5rem 0;
   flex: 1;

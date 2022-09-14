@@ -1,0 +1,43 @@
+.BoxReadMore {
+  width: 20rem;
+  background-color: var(--accent);
+  color: #fff;
+  margin: 2rem auto;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.readMoreBtn {
+  display: inline-block;
+  color: var(--accent);
+  background-color: #eee;
+  padding: 0.6rem 1.5rem;
+  font-size: 1em;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.5s;
+  cursor: pointer;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.boxReadMoreText{
+  display: block;
+  opacity: 0;
+  height: 0;
+  transition: all 0.5s;
+}
+
+.boxReadMoreTextOpen{
+  display: block;
+  opacity: 1;
+  height: 5rem;
+}
+
+.readMoreBtn:hover {
+  background-color: #fff;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  cursor: pointer;
+}
