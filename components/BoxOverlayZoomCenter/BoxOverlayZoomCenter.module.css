@@ -1,0 +1,39 @@
+.BoxOverlayZoomContainer {
+    margin-top: 2rem;
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 5px;
+  }
+  
+  .contentOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    transition: 0.5s ease;
+    transform: scale(0);
+  }
+  .BoxOverlayZoomContainer:hover .contentOverlay {
+    transform: scale(1);
+  }
+  .BoxOverlayZoomContainer:hover .contentDetails {
+      opacity: 1;
+    }
+  .contentDetails {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
