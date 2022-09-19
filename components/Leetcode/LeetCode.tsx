@@ -88,7 +88,7 @@ const LeetCode: React.FC = () => {
   console.log("longestCommonPrefix:");
   console.log(longestCommonPrefix(["cow", "cobra", "cola"]));
 
-  const mergeTwoSortedLists = (
+  const mergeTwoSortedArrays = (
     array1: number[],
     array2: number[]
   ): number[] => {
@@ -112,8 +112,39 @@ const LeetCode: React.FC = () => {
     }
     return newArray;
   };
-  console.log("mergeTwoSortedLists:");
-  console.log(mergeTwoSortedLists([1, 2, 3, 5, 6], [1, 2, 4]));
+  console.log("mergeTwoSortedArrays:");
+  console.log(mergeTwoSortedArrays([1, 2, 3, 5, 6], [1, 2, 4]));
+
+  const removeDuplicateFromSortedArray = (array: number[]): (number | null)[] => {
+    return array.map((element, index) => {
+      return element !== array[index + 1] ? element : null
+    })
+  };
+  console.log("removeDuplicateFromSortedArray:");
+  console.log(removeDuplicateFromSortedArray([1, 1, 2, 2, 2, 3]).sort());
+
+  const validParentheses = (string: any) => {
+    const stack = [];
+    const map = {
+      '(': ')',
+      '[': ']',
+      '{': '}'
+    }
+    
+    for (let i = 0 ; i < string.length ; i++) {
+        let character:string = string[i];
+        if (map[character]) {
+          stack.push(map[character])
+        } else if (character !== stack.pop()) {
+          return false;
+        } 
+        console.log(stack);
+    }
+    
+    return !stack.length;
+  };
+  console.log("validParentheses:");
+  console.log(validParentheses("({})"));
 
   return <div></div>;
 };
