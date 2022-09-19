@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
 
+interface mapInterface {
+    "(": string;
+    "[": string;
+    "{": string;
+}
+
 const LeetCode: React.FC = () => {
   const isPalindrome = (input: number) => {
     const inputArray = input.toString().split("");
@@ -125,16 +131,16 @@ const LeetCode: React.FC = () => {
 
   const validParentheses = (string: any) => {
     const stack = [];
-    const map = {
+    const map:mapInterface = {
       '(': ')',
       '[': ']',
       '{': '}'
     }
     
     for (let i = 0 ; i < string.length ; i++) {
-        let character:string = string[i];
-        if (map[character]) {
-          stack.push(map[character])
+        let character = string[i];
+        if (map[character as keyof mapInterface]) {
+          stack.push(map[character as keyof mapInterface] )
         } else if (character !== stack.pop()) {
           return false;
         } 

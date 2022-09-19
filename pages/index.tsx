@@ -10,6 +10,7 @@ import BoxOverlayZoomCenter from "@/components/BoxOverlayZoomCenter/BoxOverlayZo
 import MultiStepForm from "@/components/MultiStepForm/MultiStepForm";
 import FormikForm from "@/components/FormikForm/FormikForm";
 import LeetCode from "@/components/Leetcode/LeetCode";
+import LinkedListPractice from "@/components/LinkedList/LinkedList";
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
         <MultiStepForm />
         <FormikForm />
         <LeetCode />
+        <LinkedListPractice />
       </main>
     </div>
   );
