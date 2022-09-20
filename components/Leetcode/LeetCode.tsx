@@ -152,6 +152,19 @@ const LeetCode: React.FC = () => {
   console.log("validParentheses:");
   console.log(validParentheses("({})"));
 
+  const happyNumber = (input: number): boolean => {
+    if (input < 10) {
+      return false
+    }
+    const stringNumber = input.toString();
+    const inputArray:string[] = Array.from(stringNumber);
+    console.log(inputArray);
+    
+    return false;
+  };
+  console.log("HAPPY NUMBER:");
+  console.log(happyNumber(19));
+
   return <div></div>;
 };
 
