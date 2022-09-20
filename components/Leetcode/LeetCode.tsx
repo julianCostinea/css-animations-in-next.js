@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
 
 interface mapInterface {
-    "(": string;
-    "[": string;
-    "{": string;
+  "(": string;
+  "[": string;
+  "{": string;
+}
+
+interface hashMapInterface {
+  [key: number]: number;
 }
 
 const LeetCode: React.FC = () => {
@@ -121,49 +125,103 @@ const LeetCode: React.FC = () => {
   console.log("mergeTwoSortedArrays:");
   console.log(mergeTwoSortedArrays([1, 2, 3, 5, 6], [1, 2, 4]));
 
-  const removeDuplicateFromSortedArray = (array: number[]): (number | null)[] => {
+  const removeDuplicateFromSortedArray = (
+    array: number[]
+  ): (number | null)[] => {
     return array.map((element, index) => {
-      return element !== array[index + 1] ? element : null
-    })
+      return element !== array[index + 1] ? element : null;
+    });
   };
   console.log("removeDuplicateFromSortedArray:");
   console.log(removeDuplicateFromSortedArray([1, 1, 2, 2, 2, 3]).sort());
 
   const validParentheses = (string: any) => {
     const stack = [];
-    const map:mapInterface = {
-      '(': ')',
-      '[': ']',
-      '{': '}'
+    const map: mapInterface = {
+      "(": ")",
+      "[": "]",
+      "{": "}",
+    };
+
+    for (let i = 0; i < string.length; i++) {
+      let character = string[i];
+      if (map[character as keyof mapInterface]) {
+        stack.push(map[character as keyof mapInterface]);
+      } else if (character !== stack.pop()) {
+        return false;
+      }
+      console.log(stack);
     }
-    
-    for (let i = 0 ; i < string.length ; i++) {
-        let character = string[i];
-        if (map[character as keyof mapInterface]) {
-          stack.push(map[character as keyof mapInterface] )
-        } else if (character !== stack.pop()) {
-          return false;
-        } 
-        console.log(stack);
-    }
-    
+
     return !stack.length;
   };
   console.log("validParentheses:");
   console.log(validParentheses("({})"));
 
   const happyNumber = (input: number): boolean => {
-    if (input < 10) {
-      return false
-    }
-    const stringNumber = input.toString();
-    const inputArray:string[] = Array.from(stringNumber);
-    console.log(inputArray);
-    
-    return false;
+    const hashMap: hashMapInterface = {};
+    const recursion = (number: number): boolean => {
+      const array = number.toString().split("");
+      let newNumber = 0;
+
+      for (let i = 0; i < array.length; i++) {
+        newNumber += Number(array[i]) ** 2;
+      }
+
+      if (newNumber === 1) return true;
+
+      if (hashMap[newNumber]) return false;
+      hashMap[newNumber] = newNumber;
+      return recursion(newNumber);
+    };
+
+    return recursion(input);
   };
   console.log("HAPPY NUMBER:");
   console.log(happyNumber(19));
+
+  const bestTimeToBuyAndSellStock = (prices: number[]): number => {
+    // const min = Math.min(...array);
+    // const max = Math.max(...array);
+    // return max-min;
+    let max = 0;
+    let min = prices[0];
+
+    for (let i = 1; i < prices.length; ++i) {
+      if (min > prices[i]) {
+        min = prices[i];
+      }
+      if (prices[i] > max) {
+        max = prices[i];
+      }
+    }
+
+    return max - min;
+  };
+  console.log("Best Time to Stock:");
+  console.log(bestTimeToBuyAndSellStock([8, 1, 2, 5, 9]));
+
+  const numberOf1s = (number: number): number => {
+    return number.toString().replaceAll("0", "").length;
+  };
+  console.log("numberOf1s:");
+  console.log(numberOf1s(1101100));
+
+  const climbStairs = (stairs:number): number => {
+    const tab:hashMapInterface = {};
+    for (let i = 1; i <= stairs; i++) {
+      if (i === 1) { // Base Case
+        tab[1] = 1;
+      } else if (i === 2) { // Base case
+        tab[2] = 2;
+      } else {
+        tab[i] = tab[i - 1] + tab[i - 2]; // Set our tab
+      }
+    }
+    return tab[stairs];
+  };
+  console.log("climbStairs:");
+  console.log(climbStairs(6));
 
   return <div></div>;
 };
