@@ -123,7 +123,7 @@ const LeetCode: React.FC = () => {
     return newArray;
   };
   console.log("mergeTwoSortedArrays:");
-  console.log(mergeTwoSortedArrays([1, 2, 3, 5, 6], [1, 2, 4]));
+  console.log(mergeTwoSortedArrays([1, 2, 3, 5, 6], [1, 2, 4, 7]));
 
   const removeDuplicateFromSortedArray = (
     array: number[]
@@ -207,8 +207,8 @@ const LeetCode: React.FC = () => {
   console.log("numberOf1s:");
   console.log(numberOf1s(1101100));
 
-  const climbStairs = (stairs:number): number => {
-    const tab:hashMapInterface = {};
+  const climbStairs = (stairs: number): number => {
+    const tab: hashMapInterface = {};
     for (let i = 1; i <= stairs; i++) {
       if (i === 1) { // Base Case
         tab[1] = 1;
