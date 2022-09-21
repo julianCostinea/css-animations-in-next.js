@@ -181,8 +181,8 @@ const LeetCode: React.FC = () => {
   console.log(happyNumber(19));
 
   const bestTimeToBuyAndSellStock = (prices: number[]): number => {
-    // const min = Math.min(...array);
-    // const max = Math.max(...array);
+    // const min = Math.min(...prices);
+    // const max = Math.max(...prices);
     // return max-min;
     let max = 0;
     let min = prices[0];
@@ -210,9 +210,11 @@ const LeetCode: React.FC = () => {
   const climbStairs = (stairs: number): number => {
     const tab: hashMapInterface = {};
     for (let i = 1; i <= stairs; i++) {
-      if (i === 1) { // Base Case
+      if (i === 1) {
+        // Base Case
         tab[1] = 1;
-      } else if (i === 2) { // Base case
+      } else if (i === 2) {
+        // Base case
         tab[2] = 2;
       } else {
         tab[i] = tab[i - 1] + tab[i - 2]; // Set our tab
@@ -222,6 +224,35 @@ const LeetCode: React.FC = () => {
   };
   console.log("climbStairs:");
   console.log(climbStairs(6));
+
+  const removeElement = (nums: number[], val: number) => {
+    var zeroStartIdx = 0;
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] !== val) {
+        //for modifying the beginning of the array
+        nums[zeroStartIdx] = nums[i];
+        zeroStartIdx++;
+      }
+    }
+    return zeroStartIdx;
+  };
+  console.log("removeElement:");
+  console.log(removeElement([1, 2, 3, 3, 4, 5], 3));
+
+  const plusOne = (digits: number[]): number[] => {
+    for (let i = digits.length - 1; i >= 0; i--) {
+      digits[i]++;
+      if (digits[i] > 9) {
+        digits[i] = 0;
+      } else {
+        return digits;
+      }
+    }
+    digits.unshift(1);
+    return digits;
+  };
+  console.log("plusOne:");
+  console.log(plusOne([1, 2, 3]));
 
   return <div></div>;
 };
