@@ -1,0 +1,25 @@
+$constant-aspect-ratio: 20rem;
+$colors: (
+  text-color: white,
+  overlay-color: red,
+);
+
+.BoxOverlayZoomContainer {
+  margin-top: 2rem;
+  position: relative;
+  width: $constant-aspect-ratio;
+  height: $constant-aspect-ratio;
+  border-radius: 5px;
+}
+
+.overlay {
+  position: absolute;
+  background-color: lighten(
+    $color: map-get($map: $colors, $key: overlay-color),
+    $amount: 20
+  );
+  overflow: hidden;
+  opacity: 0.8;
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import classes from "./BoxOverlayZoom.module.css";
+import classes from "./BoxOverlayZoom.module.scss";
 
 const BoxOverlayZoom: React.FC = () => {
   return (

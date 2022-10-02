@@ -1,0 +1,31 @@
+@use "../../styles/variables";
+
+.contentOverlay {
+  @extend .overlay;
+  top: 90%;
+  left: 45%;
+  width: 10%;
+  height: 10%;
+}
+.BoxOverlayZoomContainer:hover .contentOverlay {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+}
+.BoxOverlayZoomContainer:hover .contentDetails {
+  opacity: 1;
+}
+.contentDetails {
+  color: map-get($map: variables.$colors, $key: text-color);
+  font-size: 20px;
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
