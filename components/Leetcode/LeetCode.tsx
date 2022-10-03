@@ -226,7 +226,7 @@ const LeetCode: React.FC = () => {
   console.log(climbStairs(6));
 
   const removeElement = (nums: number[], val: number) => {
-    var zeroStartIdx = 0;
+    let zeroStartIdx = 0;
     for (let i = 0; i < nums.length; i++) {
       if (nums[i] !== val) {
         //for modifying the beginning of the array
